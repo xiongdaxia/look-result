@@ -6,6 +6,8 @@ README
 
 ### 项目作用：在Node端生成微信小程序端的海报图
 
+### 技术栈：koa + node-canvas + koa-router
+
 ### 海报预览
 <img src="./img/one.jpeg" style="margin:50px" width="350" title="海报一"/><img src="./img/two.jpeg" style="margin:50px" width="350" title="海报二"/>
 <img src="./img/three.jpeg" style="margin:50px" width="350" title="海报三"/><img src="./img/four.jpeg" style="margin:50px" width="350" title="海报四"/>
@@ -15,7 +17,21 @@ README
 * 使用比较hack的方法实现了服务端支持emoji表情
 * 自己封装了由参数绘制海报的模块，减小了大量API的重复编写，提高了开发效率
 
-### 海报可以直接使用util/canvas配置（当前不适用复杂的需要clip操作的绘图）
+#### 解决node-canvas支持emoji表情
+
+#### 尝试解决的方案
+* 方案一 尝试采用将html变为img的npm包，将H5中能显示的emoji变为图片，类似包：html-to-image等（放弃）
+* 方案二 尝试将苹果设备下的所有emoji表情按照ascii编码的形式打包为tff格式的字体，以字体的形式引入node-canvas（放弃）
+* 方案三 尝试寻找所有的emoji表情图片并以ascii的编码命名，利用JS识别emoji的编码去一一对应表情，然后绘制在海报图上（采用）
+* 方案四 在小程序前端将含有emoji表情的文本以图片的形式传给后端，后端返回给node端绘制成海报。（放弃）
+
+方案一：node包性能不稳定，在html变成img的过程中，如果生成的图片size过大，会导致图片生成失败，并且生成的图片存在质量模糊的问题（放弃使用）
+方案二：理论上，该方案是最优的解决方案，node-canvas的registerFont方法支持字体的引入，失败原因是：寻找不到的生效并且完全匹配的emoji.ttf文件，自己手动匹配创建一个支持emoji的字体文件成本过大，工作量极大，需要匹配2000多个文件。并且ttf文件的生成更是一个大坑。（理论可行，事实碰壁）
+方案三：在github上寻找到足量的emoji表情，并且是以emoji表情对应的ascii编码命名的，最终采用将所有emoji表情的图片存入本地，以emoji表情的ascii码去取对应的图片然后绘制成功。（最终采用）
+方案四：该方法与业务相关联，不具备纯粹性，不能独立解决node端不支持emoji，并且人力成本大。（放弃使用）
+
+
+#### 海报可以直接使用util/canvas配置（当前不适用复杂的需要clip操作的绘图）
 ```js
 // config example:
 let canvasConfug = 
