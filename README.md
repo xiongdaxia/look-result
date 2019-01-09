@@ -89,6 +89,7 @@ views:[
 }
 ```
 
+
 ## 项目名称：mlook-re
 
 #### 项目作用：用于开发LOOK平台相关业务的H5页面 采用静态化部署策略
@@ -111,6 +112,8 @@ views:[
 ### 电商品牌页展示
 <img src="./img/phone2.jpeg" style="margin-right:20px" width="350" title="海报一"/>
 
+
+
 ## 项目名称：lookstore
 
 #### 项目作用：给众多博主以及供应商使用的PC端系统
@@ -127,6 +130,8 @@ views:[
 
 ### 选品页面
 <img src="./img/lookstore2.jpeg" style="margin-right:20px" width="350" title="海报一"/>
+
+
 
 ## 项目名称：xadmin
 
