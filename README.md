@@ -9,8 +9,8 @@ README
 ### 技术栈：koa + node-canvas + koa-router
 
 ### 海报预览
-<img src="./img/one.jpeg" style="margin:50px" width="350" title="海报一"/><img src="./img/two.jpeg" style="margin:50px" width="350" title="海报二"/>
-<img src="./img/three.jpeg" style="margin:50px" width="350" title="海报三"/><img src="./img/four.jpeg" style="margin:50px" width="350" title="海报四"/>
+<img src="./img/one.jpeg" style="margin:50px" width="350" title="海报一"/> <img src="./img/two.jpeg" style="margin:50px" width="350" title="海报二"/>
+<img src="./img/three.jpeg" style="margin:50px" width="350" title="海报三"/> <img src="./img/four.jpeg" style="margin:50px" width="350" title="海报四"/>
 
 ### 收获
 * 获得node端 搭建koa项目的经验 熟悉 node-canvas的使用
